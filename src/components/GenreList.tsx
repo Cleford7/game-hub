@@ -1,6 +1,7 @@
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -21,6 +22,9 @@ const GenreList = ({ onSelectedGenre: handleClick, selectedGenre }: Props) => {
 
   return (
     <>
+      <Heading fontSize="2xl" marginBottom={3}>
+        Genres
+      </Heading>
       {error && error !== "canceled" && <Spinner />}
       {isLoading &&
         skeletons.map((skeleton) => <GenreSkeleton key={skeleton} />)}
@@ -33,8 +37,11 @@ const GenreList = ({ onSelectedGenre: handleClick, selectedGenre }: Props) => {
                 src={getCroppedImg(genre.image_background)}
                 boxSize="32px"
                 borderRadius="8px"
+                objectFit="cover"
               />
               <Button
+                whiteSpace="normal"
+                textAlign="left"
                 fontWeight={selectedGenre?.id === genre.id ? "bold" : "normal"}
                 onClick={() => handleClick(genre)}
                 fontSize="lg"
