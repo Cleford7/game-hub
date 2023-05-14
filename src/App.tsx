@@ -13,6 +13,9 @@ function App() {
       <GridItem area={"nav"}>
         <NavBar />
       </GridItem>
+      <GridItem area={"main"}>
+        <GameGrid />
+      </GridItem>
       <Show above="lg">
         <GridItem area={"aside"}>Aside</GridItem>
         <GridItem area={"main"}>
