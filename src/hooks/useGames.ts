@@ -1,10 +1,17 @@
 import { useState, useEffect } from "react";
 import apiClient from "../services/api-client";
 
+export interface Platform {    
+    id: number;
+    name: string;
+    slug: string;
+}
+
 export interface Game {
     id: number;
     name: string;
     background_image: string;
+    parent_platforms: {platform: Platform}[];
   }
   
 interface FetchGamesResponse {
@@ -24,6 +31,7 @@ const useGames = () => {
       { signal: controller.signal })
       .then((response) => {
         setGames(response.data.results);
+        console.log(response.data.results);
       })
       .catch((error) => {
         if (error instanceof AbortController ) return;
