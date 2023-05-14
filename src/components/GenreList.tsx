@@ -11,11 +11,11 @@ import getCroppedImg from "../services/image-url";
 import GenreSkeleton from "./GenreSkeleton";
 
 interface Props {
-  onSelectGenre: (genre: Genre) => void;
+  onSelectedGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre: handleClick, selectedGenre }: Props) => {
+const GenreList = ({ onSelectedGenre: handleClick, selectedGenre }: Props) => {
   const { data: data, error, isLoading } = useGenre();
   const skeletons = [1, 2, 3, 4, 5, 6];
 
