@@ -13,8 +13,6 @@ function App() {
     null
   );
 
-  console.log(selectedPlatform);
-
   return (
     <Grid
       templateAreas={{
@@ -30,8 +28,14 @@ function App() {
         <NavBar />
       </GridItem>
       <GridItem area={"main"}>
-        <PlatformSelector onSelectedPlatform={setSelectedPlatform} />
-        <GameGrid selectedGenre={selectedGenre} />
+        <PlatformSelector
+          selectedPlatform={selectedPlatform}
+          onSelectPlatform={setSelectedPlatform}
+        />
+        <GameGrid
+          selectedPlatform={selectedPlatform}
+          selectedGenre={selectedGenre}
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area={"aside"} paddingX={5}>
@@ -41,8 +45,14 @@ function App() {
           />
         </GridItem>
         <GridItem area={"main"}>
-          <PlatformSelector onSelectedPlatform={setSelectedPlatform} />
-          <GameGrid selectedGenre={selectedGenre} />
+          <PlatformSelector
+            selectedPlatform={selectedPlatform}
+            onSelectPlatform={setSelectedPlatform}
+          />
+          <GameGrid
+            selectedPlatform={selectedPlatform}
+            selectedGenre={selectedGenre}
+          />
         </GridItem>
       </Show>
     </Grid>
